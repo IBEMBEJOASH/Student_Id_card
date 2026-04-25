@@ -60,6 +60,8 @@ fun StudentInfo() {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-
+fun WelcomePreview() {
+NdejjeWelcomeAppTheme {
+    StudentInfo()
+}
 }
