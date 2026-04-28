@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -46,6 +47,15 @@ fun StudentInfo() {
         modifier = Modifier.padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Image(
+            painter = profileImage,
+            contentDescription = "Student Photo",
+            contentScale = ContentScale.Crop
+        )
+        Image(
+            painter = logoImage,
+            contentDescription = null
+        )
         Text(
             text = stringResource(R.string.Student_name),
             style = MaterialTheme.typography.headlineSmall,
