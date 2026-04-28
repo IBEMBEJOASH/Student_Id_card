@@ -1,5 +1,7 @@
 package ug.ac.ndejje.welcome
 
+import androidx.compose.ui.res.painterResource
+import androidx.compose.foundation.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -38,6 +40,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun StudentInfo() {
+    val profileImage = painterResource(R.drawable.photo_1)
+    val logoImage = painterResource(R.drawable.logo_2)
     Column(
         modifier = Modifier.padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally
