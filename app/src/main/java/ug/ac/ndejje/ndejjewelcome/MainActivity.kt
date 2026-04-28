@@ -7,11 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
@@ -93,19 +95,20 @@ fun StudentInfo() {
             thickness = 1.dp,
             color = MaterialTheme.colorScheme.outlineVariant
         )
+        Row(modifier = Modifier){
+            Text(
+                text = "REG NO.:",
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.ExtraBold,
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Text(
+                text = stringResource(R.string.reg_number),
+                style = MaterialTheme.typography.bodyLarge,
+                fontFamily = FontFamily.Monospace
+            )
+        }
 
-        Text(
-            text = "REG NO.:",
-            style = MaterialTheme.typography.labelLarge,
-            fontWeight = FontWeight.ExtraBold,
-            modifier = Modifier.padding(top = 8.dp)
-        )
-        
-        Text(
-            text = stringResource(R.string.reg_number),
-            style = MaterialTheme.typography.bodyLarge,
-            fontFamily = FontFamily.Monospace
-        )
     }
 }
 
