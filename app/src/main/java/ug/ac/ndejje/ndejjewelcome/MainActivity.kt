@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             NdejjeWelcomeAppTheme {
-                StudentInfo()
+                StudentIdCard()
             }
         }
     }
@@ -125,13 +125,15 @@ fun StudentIdCard() {
         colors = CardDefaults.elevatedCardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
         )
-    ) { }
+    ) {
+        StudentInfo()
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun WelcomePreview() {
     NdejjeWelcomeAppTheme {
-        StudentInfo()
+        StudentIdCard()
     }
 }
