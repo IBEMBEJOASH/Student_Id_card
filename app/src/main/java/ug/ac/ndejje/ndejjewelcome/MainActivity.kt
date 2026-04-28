@@ -7,7 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -46,14 +48,14 @@ fun StudentInfo() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(modifier = Modifier.padding(10.dp)) {
             // ① Profile photo — takes up the full Box size
             Image(
                 painter = profileImage,
-                contentDescription = "Student Photo",
+                contentDescription = "Profile photo",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(150.dp)
@@ -70,6 +72,7 @@ fun StudentInfo() {
                     .padding(4.dp)
             )
         }
+        Spacer(modifier = Modifier.height(16.dp))
         
         Text(
             text = stringResource(R.string.Student_name),
