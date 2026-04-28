@@ -1,29 +1,29 @@
-package ug.ac.ndejje.welcome
+package ug.ac.ndejje.ndejjewelcome
 
-import androidx.compose.ui.res.painterResource
-import androidx.compose.foundation.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ug.ac.ndejje.ndejjewelcome.R
 import ug.ac.ndejje.ndejjewelcome.ui.theme.NdejjeWelcomeAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,59 +33,77 @@ class MainActivity : ComponentActivity() {
         setContent {
             NdejjeWelcomeAppTheme {
                 StudentInfo()
-                }
             }
         }
     }
-
+}
 
 @Composable
 fun StudentInfo() {
     val profileImage = painterResource(R.drawable.photo_1)
     val logoImage = painterResource(R.drawable.logo_2)
+    
     Column(
-        modifier = Modifier.padding(10.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(
-            painter = profileImage,
-            contentDescription = "Student Photo",
-            contentScale = ContentScale.Crop
-        )
-        Image(
-            painter = logoImage,
-            contentDescription = null
-        )
+        Box(modifier = Modifier.padding(10.dp)) {
+            // ① Profile photo — takes up the full Box size
+            Image(
+                painter = profileImage,
+                contentDescription = "Student Photo",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(150.dp)
+                    .clip(RoundedCornerShape(percent = 10))
+            )
+
+            // ② University logo — resized and pinned to the bottom-end corner
+            Image(
+                painter = logoImage,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(80.dp)
+                    .align(Alignment.BottomEnd)
+                    .padding(4.dp)
+            )
+        }
+        
         Text(
             text = stringResource(R.string.Student_name),
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary
         )
+        
         Text(
             text = stringResource(R.string.Programme).uppercase(),
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.padding(vertical = 4.dp)
         )
+        
         Text(
             text = "REG NO.:",
             style = MaterialTheme.typography.labelLarge,
-            fontWeight = FontWeight.ExtraBold
+            fontWeight = FontWeight.ExtraBold,
+            modifier = Modifier.padding(top = 8.dp)
         )
+        
         Text(
-            text = "24/2/314/D/335",
+            text = stringResource(R.string.reg_number),
             style = MaterialTheme.typography.bodyLarge,
             fontFamily = FontFamily.Monospace
         )
     }
-
 }
 
 @Preview(showBackground = true)
 @Composable
 fun WelcomePreview() {
-NdejjeWelcomeAppTheme {
-    StudentInfo()
-}
+    NdejjeWelcomeAppTheme {
+        StudentInfo()
+    }
 }
