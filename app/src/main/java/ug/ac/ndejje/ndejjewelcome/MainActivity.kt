@@ -48,8 +48,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun StudentInfo() {
-    val profileImage = painterResource(R.drawable.photo_1)
-    val logoImage = painterResource(R.drawable.logo_2)
     
     Column(
         modifier = Modifier
@@ -57,6 +55,9 @@ fun StudentInfo() {
             .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        val profileImage = painterResource(R.drawable.photo_1)
+        val logoImage = painterResource(R.drawable.logo_2)
+
         Box(modifier = Modifier.padding(10.dp)) {
             // ① Profile photo — takes up the full Box size
             Image(
