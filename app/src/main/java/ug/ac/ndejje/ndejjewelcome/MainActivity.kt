@@ -12,11 +12,13 @@ import androidx.compose.material3.Text
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ug.ac.ndejje.ndejjewelcome.R
 import ug.ac.ndejje.ndejjewelcome.ui.theme.NdejjeWelcomeAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,13 +37,13 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun StudentInfo() {
     Text(
-        text = "Ibembe Joash",
+        text = stringResource(R.string.Student_name),
         style = MaterialTheme.typography.headlineSmall,
         fontWeight = FontWeight.Bold,
         color = MaterialTheme.colorScheme.primary
     )
     Text(
-        text = "Bachelor of Information Technology",
+        text = stringResource(R.string.Programme).uppercase(),
         style = MaterialTheme.typography.labelMedium,
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier.padding(vertical = 4.dp)
